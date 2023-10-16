@@ -1,5 +1,6 @@
 let express = require('express');
 let app = express();
+require('dotenv').config(); //part of #6 Challenge
 
 
 //#1 Challenge
@@ -20,12 +21,24 @@ app.get("/", (req, res) => {
     res.sendFile(__dirname + "/views/index.html");
 })
 
-// #5 Challenge
+// // #5 Challenge
+// app.get("/json", (req, res) => {
+//     // res.json({"message": "Hello json"})
+// });
+
+// #6 Challenge
 app.get("/json", (req, res) => {
-    res.json({"message": "Hello json"})
+    console.log(process.env.MESSAGE_STYLE, " <= message style");
+    if (process.env.MESSAGE_STYLE === "uppercase") {
+        res.json(
+            {"message": "HELLO JSON"}
+        )
+    } else {
+        res.json(
+            {"message": "Hello json"}
+        )
+    }
 });
-
-
 
 
 
