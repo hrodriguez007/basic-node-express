@@ -10,10 +10,16 @@ let app = express();
 //     res.send("Hello Express")
 // })
 
+//#4 Challenge
+app.use("/public", express.static(__dirname + "/public"));
+
+
+
 //#3 Challenge
 app.get("/", (req, res) => {
     res.sendFile(__dirname + "/views/index.html");
 })
+
 
 
 
