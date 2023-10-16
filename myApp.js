@@ -20,6 +20,10 @@ app.get("/", (req, res) => {
     res.sendFile(__dirname + "/views/index.html");
 })
 
+// #5 Challenge
+app.get("/json", (req, res) => {
+    res.json({"message": "Hello json"})
+});
 
 
 
