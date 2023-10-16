@@ -10,7 +10,10 @@ app.get("/", (req, res) => {
     res.send("Hello Express")
 })
 
-
+//#3 Challenge
+app.get("/", (req, res) => {
+    res.sendFile(__dirname + '/views/index.html');
+})
 
 
 
