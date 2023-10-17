@@ -45,7 +45,17 @@ app.get("/json", (req, res) => {
 });
 
 
+// #8 Challenge
+function getTheCurrentTimeString() {
+    return new Date().toString();
+}
 
+app.get("/now", (req, res, next) => {
+    req.time = getTheCurrentTimeString();
+    next();
+}, (req, res) => {
+    res.json({time: req.time});
+})
 
 
 
