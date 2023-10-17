@@ -1,6 +1,7 @@
 let express = require('express');
 let app = express();
 require('dotenv').config(); //part of #6 Challenge
+var bodyParser = require('body-parser'); //part of #11 Challenge
 
 
 //#1 Challenge
@@ -17,6 +18,12 @@ app.use("/public", express.static(__dirname + "/public"));
 // #7 Challenge
 app.use((req, res, next) => {
     console.log(req.method + " " + req.path + " - " + req.ip);
+    next();
+});
+
+// #11 Challenge
+app.use((req, res, next) => {
+    bodyParser.urlencoded({extended: false})
     next();
 });
 
