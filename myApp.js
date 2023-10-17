@@ -14,7 +14,11 @@ require('dotenv').config(); //part of #6 Challenge
 //#4 Challenge
 app.use("/public", express.static(__dirname + "/public"));
 
-
+// #7 Challenge
+app.use((req, res, next) => {
+    console.log(`${req.method} ${req.path} ${req.ip}`);
+    next();
+})
 
 //#3 Challenge
 app.get("/", (req, res) => {
