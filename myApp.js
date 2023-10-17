@@ -22,10 +22,13 @@ app.use((req, res, next) => {
 });
 
 // #11 Challenge
-app.use((req, res, next) => {
-    bodyParser.urlencoded({extended: false})
-    next();
-});
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// parse application/json
+app.use(bodyParser.json());
+
 
 //#3 Challenge
 app.get("/", (req, res) => {
